@@ -41,7 +41,7 @@
     "oslllo-svg-fixer": "^5.0.0",
     "prettier": "^3.0.3",
     "rimraf": "^6.0.1",
-    "svgicons2svgfont": "15.0.0",
+    "svgicons2svgfont": "15.0.1",
     "svgo": "^3.3.2",
     "svgtofont": "^6.0.0",
     "xml2js": "^0.6.2"

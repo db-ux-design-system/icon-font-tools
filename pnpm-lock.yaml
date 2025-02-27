@@ -33,8 +33,8 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
       svgicons2svgfont:
-        specifier: 15.0.0
-        version: 15.0.0
+        specifier: 15.0.1
+        version: 15.0.1
       svgo:
         specifier: ^3.3.2
         version: 3.3.2
@@ -2467,8 +2467,8 @@ packages:
     resolution: {integrity: sha512-CgqMyZrbOPpc+WqH7aga4JWkDPso23EgypLsbQ6gN3uoPWwwiLjXvzgrwGADBExvCRJrWFzAeK1bSoSpE7ixSQ==}
     hasBin: true
 
-  svgicons2svgfont@15.0.0:
-    resolution: {integrity: sha512-X5iL08aZJRKwYAGcl6ykQg0T6ce8yGpLdccqMXp6mreObpSdjlME9dRKPFIvFWX9/KTvPFAuYnX1gCaqjw7QUA==}
+  svgicons2svgfont@15.0.1:
+    resolution: {integrity: sha512-rE3BoIipD6DxBejPswalKRZZYA+7sy4miHqiHgXB0zI1xJD3gSCVrXh2R6Sdh9E4XDTxYp7gDxGW2W8DIBif/g==}
     engines: {node: '>=20.11.1'}
     hasBin: true
 
@@ -2557,9 +2557,8 @@ packages:
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
-  transformation-matrix-js@2.7.6:
-    resolution: {integrity: sha512-1CxDIZmCQ3vA0GGnkdMQqxUXVm3xXAFmglPYRS1hr37LzSg22TC7QAWOT38OmdUvMEs/rqcnkFoAsqvzdiluDg==}
-    deprecated: Package no longer supported. Contact support@npmjs.com for more info.
+  transformation-matrix@3.0.0:
+    resolution: {integrity: sha512-C6NlNnD6T8JqDeY4BpGznuve4d8/JlLDZLcJbnnx7gQKoyk01+uk2XYVFjBGqvNsVxJUpUwb3WZpjpdPr+05FQ==}
 
   ts-api-utils@2.0.1:
     resolution: {integrity: sha512-dnlgjFSVetynI8nzgJ+qF62efpglpWRk8isUEWZGWlJYySCTD6aKvbUDu+zbPeDakk3bg5H4XpitHukgfL1m9w==}
@@ -5255,7 +5254,7 @@ snapshots:
       microbuffer: 1.0.0
       svgpath: 2.6.0
 
-  svgicons2svgfont@15.0.0:
+  svgicons2svgfont@15.0.1:
     dependencies:
       '@types/sax': 1.2.7
       commander: 12.1.0
@@ -5263,7 +5262,7 @@ snapshots:
       glob: 11.0.1
       sax: 1.4.1
       svg-pathdata: 7.1.0
-      transformation-matrix-js: 2.7.6
+      transformation-matrix: 3.0.0
       yerror: 8.0.0
     transitivePeerDependencies:
       - supports-color
@@ -5289,7 +5288,7 @@ snapshots:
       image2uri: 2.1.2
       nunjucks: 3.2.4
       svg2ttf: 6.0.3
-      svgicons2svgfont: 15.0.0
+      svgicons2svgfont: 15.0.1
       svgo: 3.3.2
       ttf2eot: 3.1.0
       ttf2woff: 3.0.0
@@ -5365,7 +5364,7 @@ snapshots:
 
   tr46@0.0.3: {}
 
-  transformation-matrix-js@2.7.6: {}
+  transformation-matrix@3.0.0: {}
 
   ts-api-utils@2.0.1(typescript@5.7.3):
     dependencies:
