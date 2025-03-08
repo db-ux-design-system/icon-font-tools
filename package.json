@@ -5,7 +5,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/db-ux-design-system/icon-font-tools"
+    "url": "git+https://github.com/db-ux-design-system/icon-font-tools.git"
   },
   "license": "Apache-2.0",
   "bin": {
