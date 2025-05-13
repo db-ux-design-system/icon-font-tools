@@ -38,7 +38,7 @@ export const getProgram = (name: string, description: string) => {
           option.long || `--${option.name} ${pre}${option.name}${post}`;
 
         pCommand.option(
-          short ? `${short}, ${long}` : `,${long}`,
+          short ? `${short}, ${long}` : `${long}`,
           option.description || "",
           option.defaultValue,
         );

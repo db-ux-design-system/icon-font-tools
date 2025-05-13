@@ -16,7 +16,7 @@ Clean svgs for icon fonts to work
 | `--out`             |  `-o` | Relative path where the files should be written to. Empty string will overwrite the original files. |    `❌`   |              |
 | `--dry`             |  `-d` | Do a dry run with this command - prints/returns output                                              |    `❌`   |              |
 | `--ignore`          |  `-i` | Glob or path like to exclude from files                                                             |    `❌`   | `[]`         |
-| `--debug`           |       | Extra logging                                                                                       |    `❌`   |              |
+| `--debug`           |  `-g` | Extra logging                                                                                       |    `❌`   |              |
 | `--config`          |  `-c` | Path to configuration file                                                                          |    `❌`   |              |
 
 ## generate-icon-fonts
@@ -36,7 +36,7 @@ Generate icon fonts from SVG files
 | `--overwriteSources` |  `-o` | Overwrite all svgs inside src directory                                               |    `❌`   |              |
 | `--dry`              |  `-d` | Do a dry run with this command - prints/returns output                                |    `❌`   |              |
 | `--ignore`           |  `-i` | Glob or path like to exclude from files                                               |    `❌`   | `[]`         |
-| `--debug`            |       | Extra logging                                                                         |    `❌`   |              |
+| `--debug`            |  `-g` | Extra logging                                                                         |    `❌`   |              |
 | `--config`           |  `-c` | Path to configuration file                                                            |    `❌`   |              |
 
 ## icon-subset
@@ -55,7 +55,7 @@ Creates new icon font (woff2) by passing a safelist/blocklist with icon literals
 | `--filePaths` |  `-f` | File paths to woff2 file which should be subsetted.                            |    `❌`   |              |
 | `--out`       |  `-o` | Relative path where the file should be written                                 |    `❌`   | `"."`        |
 | `--dry`       |  `-d` | Do a dry run with this command - prints/returns output                         |    `❌`   |              |
-| `--debug`     |       | Extra logging                                                                  |    `❌`   |              |
+| `--debug`     |  `-g` | Extra logging                                                                  |    `❌`   |              |
 | `--config`    |  `-c` | Path to configuration file                                                     |    `❌`   |              |
 | `--ignore`    |  `-i` | Glob or path like to exclude from files                                        |    `❌`   | `[]`         |
 

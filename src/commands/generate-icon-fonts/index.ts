@@ -35,9 +35,6 @@ export const generateIconFonts = async (
       const subTemporaryDir = `${temporaryDirectory}/${directory}`;
       debugLog(debug, `svgToFont for ${subTemporaryDir}`);
       await svgToFont(subTemporaryDir, subDist, values);
-
-      rmSync(`${subDist}/symbol.html`);
-      rmSync(`${subDist}/unicode.html`);
     }
 
     if (overwriteSources && iconPaths) {

@@ -62,6 +62,7 @@ export const ignoreOption: ProgramOptionsType = {
 };
 
 export const debugOption: ProgramOptionsType = {
+  short: "g",
   name: "debug",
   description: "Extra logging",
   defaultValue: false,
