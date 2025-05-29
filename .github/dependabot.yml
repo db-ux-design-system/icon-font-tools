@@ -18,6 +18,9 @@ updates:
       - dependency-name: "eslint"
         update-types: ["version-update:semver-major"]
     groups:
+      patch-dependencies:
+        update-types:
+          - "patch"
       typescript-eslint:
         patterns:
           - "@typescript-eslint*"
@@ -25,4 +28,3 @@ updates:
         update-types:
           - "major"
           - "minor"
-          - "patch"
