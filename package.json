@@ -24,8 +24,8 @@
   "scripts": {
     "build": "npm-run-all -p build:*",
     "build:01_cli": "node esbuild.js",
-    "build:01_icon_fonts_styles": "cpr src/commands/generate-icon-fonts/utils/styles dist/styles -o",
-    "build:01_icon_fonts_templates": "cpr src/commands/generate-icon-fonts/utils/templates dist/templates -o",
+    "build:01_icon_fonts_styles": "cpr src/commands/generate-icon-fonts/utils/styles dist/commands/generate-icon-fonts/utils/styles -o",
+    "build:01_icon_fonts_templates": "cpr src/commands/generate-icon-fonts/utils/templates dist/commands/generate-icon-fonts/utils/templates -o",
     "build:02_rest": "tsc",
     "generate:api-docs": "tsx src/api-docs.ts",
     "lint": "eslint *.ts",
