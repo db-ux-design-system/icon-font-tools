@@ -22,7 +22,7 @@
     }
   },
   "scripts": {
-    "build": "npm-run-all -p build:*",
+    "build": "npm-run-all --parallel build:*",
     "build:01_cli": "node esbuild.js",
     "build:01_icon_fonts_styles": "cpr src/commands/generate-icon-fonts/utils/styles dist/commands/generate-icon-fonts/utils/styles -o",
     "build:01_icon_fonts_templates": "cpr src/commands/generate-icon-fonts/utils/templates dist/commands/generate-icon-fonts/utils/templates -o",
