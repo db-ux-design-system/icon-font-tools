@@ -1,4 +1,4 @@
-test# Icon font tools
+# Icon font tools
 
 If you have some svg icons and want to use them as a font you can generate and modify `woff2` files with these tools.
 
