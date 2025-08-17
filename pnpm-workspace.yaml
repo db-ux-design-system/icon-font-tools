@@ -1,6 +1,2 @@
 packages:
   - hygen
-
-overrides:
-  brace-expansion@>=1.0.0 <=1.1.11: '>=1.1.12'
-  tmp@<=0.2.3: '>=0.2.4'
