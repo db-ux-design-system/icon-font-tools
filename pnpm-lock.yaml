@@ -40,7 +40,7 @@ importers:
         version: 3.3.2
       svgtofont:
         specifier: ^6.0.0
-        version: 6.4.0
+        version: 6.4.1
       xml2js:
         specifier: ^0.6.2
         version: 0.6.2
@@ -633,8 +633,8 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@jridgewell/trace-mapping@0.3.30':
-    resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
+  '@jridgewell/trace-mapping@0.3.31':
+    resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
   '@napi-rs/nice-android-arm-eabi@1.0.1':
     resolution: {integrity: sha512-5qpvOu5IGwDo7MEKVqqyAxF90I6aLj4n07OzpARdgDRfz8UbBztTByBp0RC59r3J1Ij8uzYi6jI7r5Lws7nn6w==}
@@ -2569,8 +2569,8 @@ packages:
   svgpath@2.6.0:
     resolution: {integrity: sha512-OIWR6bKzXvdXYyO4DK/UWa1VA1JeKq8E+0ug2DG98Y/vOmMpfZNj+TIG988HjfYSqtcy/hFOtZq/n/j5GSESNg==}
 
-  svgtofont@6.4.0:
-    resolution: {integrity: sha512-IhQcz3THwOuC5DJvHuxl3Ol8kXAuReVW0Woo6GBdWcX4a0WvYMOzuuVKZYNLoE8c8h2L1wBVbC5+ysBznLatIA==}
+  svgtofont@6.4.1:
+    resolution: {integrity: sha512-K1b26AnW7B6gZA+FkWDsREZZijvHPmeP4hv+TkdDqtB4U8jdx9fpI8ZAqRV3hkg5dfJFpI2I6NJ8aYq08x+z8A==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -3434,7 +3434,7 @@ snapshots:
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
-      '@jridgewell/trace-mapping': 0.3.30
+      '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
@@ -3442,7 +3442,7 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@jridgewell/trace-mapping@0.3.30':
+  '@jridgewell/trace-mapping@0.3.31':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -5441,7 +5441,7 @@ snapshots:
 
   svgpath@2.6.0: {}
 
-  svgtofont@6.4.0:
+  svgtofont@6.4.1:
     dependencies:
       auto-config-loader: 2.0.2
       cheerio: 1.0.0
