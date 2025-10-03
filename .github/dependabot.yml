@@ -21,6 +21,8 @@ updates:
       patch-dependencies:
         update-types:
           - "patch"
+        patterns:
+          - "*"
       typescript-eslint:
         patterns:
           - "@typescript-eslint*"
