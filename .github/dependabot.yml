@@ -27,6 +27,3 @@ updates:
         patterns:
           - "@typescript-eslint*"
           - "typescript-eslint"
-        update-types:
-          - "major"
-          - "minor"
