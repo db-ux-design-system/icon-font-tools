@@ -7,6 +7,8 @@ updates:
       interval: "daily"
     pull-request-branch-name:
       separator: "-"
+    cooldown:
+      default-days: 3
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -17,6 +19,8 @@ updates:
       # We currently need to ignore eslint@v9
       - dependency-name: "eslint"
         update-types: ["version-update:semver-major"]
+    cooldown:
+      default-days: 3
     groups:
       patch-dependencies:
         update-types:
