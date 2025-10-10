@@ -31,6 +31,7 @@ jobs:
       - name: 🔜 Publish to npm
         env:
           TAG: ${{ steps.extractTag.outputs.tag }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           SEMVER_VERSION=$(npx find-versions-cli "$TAG")
           npm version --no-git-tag-version "$SEMVER_VERSION"
