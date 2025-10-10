@@ -8,6 +8,8 @@ jobs:
   validate:
     name: Publish
     runs-on: ubuntu-24.04 # Use Ubuntu 24.04 explicitly
+    permissions:
+      id-token: write  # Required for OIDC
     steps:
       - name: ⏬ Checkout repo
         uses: actions/checkout@v5
