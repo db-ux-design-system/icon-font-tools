@@ -35,5 +35,4 @@ jobs:
           SEMVER_VERSION=$(npx find-versions-cli "$TAG")
           npm version --no-git-tag-version "$SEMVER_VERSION"
           npm config set registry https://registry.npmjs.org/
-          npm set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
           npm publish --provenance
