@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-24.04 # Use Ubuntu 24.04 explicitly
     permissions:
       id-token: write  # Required for OIDC
+      contents: read
     steps:
       - name: ⏬ Checkout repo
         uses: actions/checkout@v5
@@ -31,10 +32,9 @@ jobs:
       - name: 🔜 Publish to npm
         env:
           TAG: ${{ steps.extractTag.outputs.tag }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           SEMVER_VERSION=$(npx find-versions-cli "$TAG")
           npm version --no-git-tag-version "$SEMVER_VERSION"
           npm config set registry https://registry.npmjs.org/
-          npm set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+          npm whoami
           npm publish --provenance
