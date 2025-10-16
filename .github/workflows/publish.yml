@@ -4,6 +4,10 @@ on:
   release:
     types: [published]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   init:
     uses: ./.github/workflows/00-init.yml
@@ -27,6 +31,3 @@ jobs:
     uses: ./.github/workflows/02-publish.yml
     needs: [build, lint, test]
     secrets: inherit
-    permissions:
-      id-token: write
-      contents: read
