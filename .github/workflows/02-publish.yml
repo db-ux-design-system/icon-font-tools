@@ -26,7 +26,7 @@ jobs:
 
       - name: 🔀 Extract tag
         shell: bash
-        run: echo "tag=${github.ref_name}" >> $GITHUB_OUTPUT
+        run: echo "tag=${{ github.ref_name }}" >> $GITHUB_OUTPUT
         id: extractTag
 
       - name: 🔜 Publish to npm
