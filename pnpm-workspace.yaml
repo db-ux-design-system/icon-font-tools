@@ -1,2 +1,5 @@
 packages:
   - hygen
+
+overrides:
+  validator@<13.15.20: '>=13.15.20'
