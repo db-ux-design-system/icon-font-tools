@@ -28,4 +28,4 @@ jobs:
     needs: [build, lint, test]
     secrets: inherit
     permissions:
-      id-token: write
+      id-token: write # Required for OIDC
