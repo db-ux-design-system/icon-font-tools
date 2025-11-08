@@ -38,11 +38,9 @@ jobs:
         env:
           TAG: ${{ steps.extractTag.outputs.tag }}
         run: |
-          echo "node version:"
+          echo "node, npm and release version:"
           node -v
-          echo "npm version:"
           npm -v
-          echo "release version:"
           SEMVER_VERSION=$(npx find-versions-cli "$TAG")
           npm version --no-git-tag-version "$SEMVER_VERSION"
           npm config set registry https://registry.npmjs.org/
