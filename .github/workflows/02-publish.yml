@@ -37,6 +37,7 @@ jobs:
       - name: 🔜 Publish to npm
         env:
           TAG: ${{ steps.extractTag.outputs.tag }}
+          NPM_TAG: ${{ github.event.release.prerelease && 'next' || 'latest' }}
         run: |
           echo "node, npm and release version:"
           node -v
@@ -44,4 +45,4 @@ jobs:
           SEMVER_VERSION=$(npx find-versions-cli "$TAG")
           npm version --no-git-tag-version "$SEMVER_VERSION"
           npm config set registry https://registry.npmjs.org/
-          npm publish --provenance
+          npm publish --provenance --tag $NPM_TAG
