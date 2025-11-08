@@ -34,6 +34,8 @@ jobs:
           TAG: ${{ steps.extractTag.outputs.tag }}
         run: |
           echo "node version:"
+          node -v
+          echo "npm version:"
           npm -v
           SEMVER_VERSION=$(npx find-versions-cli "$TAG")
           npm version --no-git-tag-version "$SEMVER_VERSION"
