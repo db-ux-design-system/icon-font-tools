@@ -15,6 +15,9 @@ jobs:
       - name: ⏬ Checkout repo
         uses: actions/checkout@v5
 
+      - name: 🔄 Init PNPM
+        uses: ./.github/actions/pnpm-init
+
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
