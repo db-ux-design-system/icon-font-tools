@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  validator@<13.15.20: '>=13.15.20'
+  min-document@<=2.19.0: '>=2.19.1'
 
 importers:
 
@@ -2036,8 +2036,8 @@ packages:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
 
-  min-document@2.19.0:
-    resolution: {integrity: sha512-9Wy1B3m3f66bPPmU5hdA4DR4PB2OfDU/+GS3yAB7IQozE3tqXaVv2zOjgla7MEGSRv95+ILmOuvhLkOK6wJtCQ==}
+  min-document@2.19.1:
+    resolution: {integrity: sha512-8lqe85PkqQJzIcs2iD7xW/WSxcncC3/DPVbTOafKNJDIMXwGfwXS350mH4SJslomntN2iYtFBuC0yNO3CEap6g==}
 
   minimatch@10.0.3:
     resolution: {integrity: sha512-IPZ167aShDZZUMdRk66cyQAW3qr0WzbHkPdMYa8bzZhlHhO3jALbKdxcaak7W9FfT2rZNpQuUu4Od7ILEpXSaw==}
@@ -4557,7 +4557,7 @@ snapshots:
 
   global@4.4.0:
     dependencies:
-      min-document: 2.19.0
+      min-document: 2.19.1
       process: 0.11.10
 
   globals@13.24.0:
@@ -4882,7 +4882,7 @@ snapshots:
 
   mimic-fn@2.1.0: {}
 
-  min-document@2.19.0:
+  min-document@2.19.1:
     dependencies:
       dom-walk: 0.1.2
 
