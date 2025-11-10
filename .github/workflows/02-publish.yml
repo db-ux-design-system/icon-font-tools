@@ -23,7 +23,7 @@ jobs:
             node-version-file: ".nvmrc"
 
       - name: ⏬ Download dist
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: build
           path: dist
