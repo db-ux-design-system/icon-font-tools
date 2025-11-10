@@ -16,4 +16,4 @@ jobs:
         uses: ./.github/actions/pnpm-init
 
       - name: 🔬 Validate repo
-        run: npm run lint
+        run: pnpm run lint

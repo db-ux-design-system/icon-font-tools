@@ -1,4 +1,4 @@
-npm run generate:api-docs
-npm run lint
-npm run build
-npm run test
+pnpm run generate:api-docs
+pnpm run lint
+pnpm run build
+pnpm run test

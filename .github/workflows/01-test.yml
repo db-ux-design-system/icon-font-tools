@@ -21,4 +21,4 @@ jobs:
         uses: ./.github/actions/pnpm-init
 
       - name: 👨‍🔬👩‍🔬 Test repo
-        run: npm run test
+        run: pnpm run test
