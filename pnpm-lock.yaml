@@ -13,7 +13,7 @@ importers:
     dependencies:
       '@inquirer/prompts':
         specifier: ^7.2.2
-        version: 7.9.0(@types/node@24.10.0)
+        version: 7.10.0(@types/node@24.10.0)
       commander:
         specifier: ^14.0.0
         version: 14.0.2
@@ -409,8 +409,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@inquirer/prompts@7.9.0':
-    resolution: {integrity: sha512-X7/+dG9SLpSzRkwgG5/xiIzW0oMrV3C0HOa7YHG1WnrLK+vCQHfte4k/T80059YBdei29RBC3s+pSMvPJDU9/A==}
+  '@inquirer/prompts@7.10.0':
+    resolution: {integrity: sha512-X2HAjY9BClfFkJ2RP3iIiFxlct5JJVdaYYXhA7RKxsbc9KL+VbId79PSoUGH/OLS011NFbHHDMDcBKUj3T89+Q==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
@@ -3180,7 +3180,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.0
 
-  '@inquirer/prompts@7.9.0(@types/node@24.10.0)':
+  '@inquirer/prompts@7.10.0(@types/node@24.10.0)':
     dependencies:
       '@inquirer/checkbox': 4.3.1(@types/node@24.10.0)
       '@inquirer/confirm': 5.1.20(@types/node@24.10.0)
