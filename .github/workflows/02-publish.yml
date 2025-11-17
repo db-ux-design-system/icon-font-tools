@@ -17,24 +17,31 @@ jobs:
       - name: 🔄 Init PNPM
         uses: ./.github/actions/pnpm-init
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+            node-version-file: ".nvmrc"
+
       - name: ⏬ Download dist
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: build
           path: dist
 
       - name: 🔀 Extract tag
         shell: bash
-        run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+        run: echo "tag=${{ github.ref_name }}" >> $GITHUB_OUTPUT
         id: extractTag
 
       - name: 🔜 Publish to npm
         env:
           TAG: ${{ steps.extractTag.outputs.tag }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TAG: ${{ github.event.release.prerelease && 'next' || 'latest' }}
         run: |
+          echo "node, npm and release version:"
+          node -v
+          npm -v
           SEMVER_VERSION=$(npx find-versions-cli "$TAG")
           npm version --no-git-tag-version "$SEMVER_VERSION"
           npm config set registry https://registry.npmjs.org/
-          npm set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
-          npm publish --provenance
+          npm publish --tag $NPM_TAG
