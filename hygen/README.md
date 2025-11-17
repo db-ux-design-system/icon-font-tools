@@ -7,5 +7,5 @@ This workspace project contains all templates to generate a boilerplate command.
 Generate command:
 
 ```shell
-npm run generate
+pnpm run generate
 ```
