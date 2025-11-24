@@ -12,7 +12,7 @@ jobs:
       id-token: write  # Required for OIDC
     steps:
       - name: ⏬ Checkout repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 🔄 Init PNPM
         uses: ./.github/actions/pnpm-init
