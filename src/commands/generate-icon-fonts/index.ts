@@ -1,5 +1,5 @@
 /* eslint-disable no-await-in-loop */
-import { log } from "console";
+import { log } from "node:console";
 import { GifConfigType } from "./data.js";
 import gatherIcons from "./utils/gather-icons.js";
 import { debugLog } from "../../utils/index.js";

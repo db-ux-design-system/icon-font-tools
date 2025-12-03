@@ -1,5 +1,5 @@
 import { globSync } from "glob";
-import { log } from "console";
+import { log } from "node:console";
 import { GifConfigType } from "../data.js";
 import { debugLog } from "../../../utils/index.js";
 import { copyFileSync, existsSync, mkdirSync } from "node:fs";
