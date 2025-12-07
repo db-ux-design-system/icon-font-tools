@@ -1,5 +1,2 @@
 packages:
   - hygen
-
-overrides:
-  min-document@<=2.19.0: '>=2.19.1'

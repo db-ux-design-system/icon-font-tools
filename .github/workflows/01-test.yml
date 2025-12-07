@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-24.04 # Use Ubuntu 24.04 explicitly
     steps:
       - name: ⏬ Checkout repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: ⏬ Install fonttools
         run: |
@@ -21,4 +21,4 @@ jobs:
         uses: ./.github/actions/pnpm-init
 
       - name: 👨‍🔬👩‍🔬 Test repo
-        run: npm run test
+        run: pnpm run test
