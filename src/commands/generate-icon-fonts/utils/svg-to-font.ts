@@ -42,7 +42,6 @@ const svgToFont = async (
       svgoOptions,
       svgicons2svgfont: {
         normalize: true,
-        centerHorizontally: true,
         ...svgicons2svgfont,
       },
       website: {
