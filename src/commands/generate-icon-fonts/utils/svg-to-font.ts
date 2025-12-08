@@ -41,7 +41,7 @@ const svgToFont = async (
       generateInfoData: true,
       svgoOptions,
       svgicons2svgfont: {
-        normalize: true,
+        normalize: false,
         ...svgicons2svgfont,
       },
       website: {
