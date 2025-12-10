@@ -1,4 +1,4 @@
-import { log } from "console";
+import { log } from "node:console";
 
 export const debugLog = (debug: boolean | undefined, message: string) => {
   if (debug) {

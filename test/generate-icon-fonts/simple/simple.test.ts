@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import fs from "fs";
+import fs from "node:fs";
 import { generateIconFonts } from "../../../src/commands/generate-icon-fonts/index";
 
 describe("simple", () => {

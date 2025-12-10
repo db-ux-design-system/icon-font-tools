@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import { resolve } from "node:path";
 
 import svgtofont from "svgtofont";
-import { log } from "console";
+import { log } from "node:console";
 import { GifConfigType } from "../data.js";
 
 const svgToFont = async (
