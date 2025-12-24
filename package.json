@@ -33,7 +33,7 @@
     "test": "vitest run --no-file-parallelism"
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.2.2",
+    "@inquirer/prompts": "^8.1.0",
     "commander": "^14.0.0",
     "cosmiconfig": "^9.0.0",
     "esbuild": "0.25.12",
