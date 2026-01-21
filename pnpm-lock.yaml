@@ -73,8 +73,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       globals:
-        specifier: ^16.0.0
-        version: 16.4.0
+        specifier: ^17.0.0
+        version: 17.0.0
       husky:
         specifier: ^9.0.11
         version: 9.1.7
@@ -1714,8 +1714,8 @@ packages:
     resolution: {integrity: sha512-AhO5QUcj8llrbG09iWhPU2B204J1xnPeL8kQmVorSsy+Sjj1sk8gIyh6cUocGmH4L0UuhAJy+hJMRA4mgA4mFQ==}
     engines: {node: '>=8'}
 
-  globals@16.4.0:
-    resolution: {integrity: sha512-ob/2LcVVaVGCYN+r14cnwnoDPUufjiYgSqRhiFD0Q1iI4Odora5RE8Iv1D24hAz5oMophRGkGz+yuvQmmUMnMw==}
+  globals@17.0.0:
+    resolution: {integrity: sha512-gv5BeD2EssA793rlFWVPMMCqefTlpusw6/2TbAVMy0FzcG8wKJn4O+NqJ4+XWmmwrayJgw5TzrmWjFgmz1XPqw==}
     engines: {node: '>=18'}
 
   graceful-fs@4.2.11:
@@ -4531,7 +4531,7 @@ snapshots:
     dependencies:
       type-fest: 0.20.2
 
-  globals@16.4.0: {}
+  globals@17.0.0: {}
 
   graceful-fs@4.2.11: {}
 
