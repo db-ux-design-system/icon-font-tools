@@ -38,7 +38,7 @@
     "cosmiconfig": "^9.0.0",
     "esbuild": "0.25.12",
     "glob": "^11.0.0",
-    "oslllo-svg-fixer": "^5.0.0",
+    "oslllo-svg-fixer": "^6.0.1",
     "prettier": "^3.0.3",
     "rimraf": "^6.0.1",
     "svgicons2svgfont": "15.0.1",
