@@ -32,6 +32,7 @@ Generate icon fonts from SVG files
 | `--src`              |  `-s` | Source folder with all svgs                                                           |    `✅`   |              |
 | `--variants`         |  `-v` | Font variants e.g. solid, inverted, etc. We always add a "default" variant for icons. |    `❌`   | `[]`         |
 | `--withSizes`        |  `-w` | Splits the font into different sizes                                                  |    `❌`   |              |
+| `--sizes`            |  `-z` | Custom sizes for font splitting (e.g., 16,24,32). Implicitly sets withSizes to true.  |    `❌`   | `[]`         |
 | `--prefix`           |  `-p` | Prefix of icons to delete for icons                                                   |    `❌`   |              |
 | `--overwriteSources` |  `-o` | Overwrite all svgs inside src directory                                               |    `❌`   |              |
 | `--dry`              |  `-d` | Do a dry run with this command - prints/returns output                                |    `❌`   |              |

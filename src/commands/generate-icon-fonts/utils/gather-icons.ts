@@ -139,11 +139,15 @@ const gatherIcons = (
   temporaryDirectory: string,
   values: GifConfigType,
 ): string[] | undefined => {
-  const { src, ignore, prefix, dry, variants, withSizes, debug } = values;
+  const { src, ignore, prefix, dry, variants, withSizes, sizes, debug } = values;
   const paths = `${src}/**/*.svg`;
 
+  // If custom sizes are provided, use them and implicitly enable withSizes
+  const useSizes = sizes && sizes.length > 0 ? true : withSizes;
+  const sizesToUse = sizes && sizes.length > 0 ? sizes : availableSizes;
+  
   // We use this to generate all combinations of variants and sizes as fonts
-  const splitSizesArray = withSizes ? ["", ...availableSizes] : [""];
+  const splitSizesArray = useSizes ? ["", ...sizesToUse] : [""];
   const splitVariantsArray =
     variants && variants.length > 0 ? ["", ...variants] : [""];
 
