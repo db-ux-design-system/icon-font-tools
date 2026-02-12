@@ -14,6 +14,7 @@ const allTemporaryDir = "all";
 const initTemporaryIconFiles = (
   globPaths: string[],
   temporaryDirectory: string,
+  sizesToStrip: number[],
   prefix?: string,
 ) => {
   const foundIconFiles: string[] = [];
@@ -27,7 +28,7 @@ const initTemporaryIconFiles = (
     }
 
     iconName = filename.replace(".svg", "");
-    for (const size of availableSizes) {
+    for (const size of sizesToStrip) {
       iconName = iconName.replace(`_${size}`, "");
     }
 
@@ -173,6 +174,7 @@ const gatherIcons = (
   const foundIconFiles = initTemporaryIconFiles(
     globPaths,
     temporaryDirectory,
+    sizesToUse,
     prefix,
   );
 
