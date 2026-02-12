@@ -64,6 +64,7 @@ export const gifOptions: ProgramOptionsType[] = [
     description: "Custom sizes for font splitting. Use space-separated values (e.g., --sizes 16 24 32). Implicitly sets withSizes to true.",
     array: true,
     required: false,
+    defaultValue: [],
   },
   {
     short: "p",
