@@ -60,7 +60,9 @@ describe("simple", () => {
     
     // Check that the base default directory still exists
     expect(fs.existsSync(`${fontsDir}/default`)).toBe(true);
-    expect(fs.existsSync(`${fontsDir}/all`)).toBe(true);
+    
+    // Check that "all" folder is NOT created when using custom sizes
+    expect(fs.existsSync(`${fontsDir}/all`)).toBe(false);
   });
 
   test("check if sizes implicitly sets withSizes", async () => {
@@ -86,6 +88,9 @@ describe("simple", () => {
     // Should have exactly 2 size-specific directories: default_20 and default_40
     expect(sizeSpecificDirs).toEqual(expect.arrayContaining(["default_20", "default_40"]));
     expect(sizeSpecificDirs.length).toBe(2);
+    
+    // Verify "all" folder is not created when using custom sizes
+    expect(fs.existsSync(`${fontsDir}/all`)).toBe(false);
   });
 
   test("sizes parameter produces only requested sizes", async () => {
@@ -112,6 +117,9 @@ describe("simple", () => {
     
     // Verify no default availableSizes [12, 14, 16, 20, 24, 28, 32, 48, 64] were created
     const defaultSizes = [12, 14, 16, 20, 24, 28, 32, 48, 64];
+    
+    // Verify "all" folder is not created when using custom sizes
+    expect(fs.existsSync(`${fontsDir}/all`)).toBe(false);
     for (const size of defaultSizes) {
       expect(fs.existsSync(`${fontsDir}/default_${size}`)).toBe(false);
     }
