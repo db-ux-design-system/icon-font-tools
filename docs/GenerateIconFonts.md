@@ -7,9 +7,13 @@ We search for all `**/*.svg` files inside the `src` directory and create a new i
 ## Output Folder Structure
 
 ### Default (without size splitting)
-Generates an `all` folder and a `default` folder with all icons:
+Generates an `all` folder and a `default` and `filled` folders with all icons:
 - `./fonts/all/` - Contains all icons combined
 - `./fonts/default/` - Default variant
+- `./fonts/default/` - Default variant
+- `./fonts/default_*/` - Further default variant sized fonts
+- `./fonts/filled/` - Filled variant
+- `./fonts/filled_*/` - Further filled variant sized fonts
 
 ### With size splitting (`--withSizes` or `--sizes`)
 When using `--withSizes` with default sizes [12, 14, 16, 20, 24, 28, 32, 48, 64]:
