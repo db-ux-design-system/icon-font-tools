@@ -10,7 +10,6 @@ We search for all `**/*.svg` files inside the `src` directory and create a new i
 Generates an `all` folder and a `default` and `filled` folders with all icons:
 - `./fonts/all/` - Contains all icons combined
 - `./fonts/default/` - Default variant
-- `./fonts/default/` - Default variant
 - `./fonts/default_*/` - Further default variant sized fonts
 - `./fonts/filled/` - Filled variant
 - `./fonts/filled_*/` - Further filled variant sized fonts
