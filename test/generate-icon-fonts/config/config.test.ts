@@ -9,7 +9,7 @@ describe("config", () => {
     });
     const infoJson = JSON.parse(
       fs
-        .readFileSync("./test/generate-icon-fonts/simple/fonts/all/info.json")
+        .readFileSync("./test/generate-icon-fonts/config/fonts/all/info.json")
         .toString("utf-8"),
     );
     expect(infoJson.brand.unicode).toBe(
