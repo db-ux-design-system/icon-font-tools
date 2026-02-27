@@ -30,8 +30,9 @@ Generate icon fonts from SVG files
 | :------------------- | :---: | :------------------------------------------------------------------------------------ | :------: | :----------- |
 | `--fontName`         |  `-f` | The name of your font                                                                 |    `✅`   |              |
 | `--src`              |  `-s` | Source folder with all svgs                                                           |    `✅`   |              |
-| `--variants`         |  `-v` | Font variants e.g. solid, inverted, etc. We always add a "default" variant for icons. |    `❌`   | `[]`         |
+| `--variants`         |  `-v` | Font variants e.g. solid, inverted, etc. We always add a "default" variant for icons. Space-separated: `--variants solid outline` |    `❌`   | `[]`         |
 | `--withSizes`        |  `-w` | Splits the font into different sizes                                                  |    `❌`   |              |
+| `--sizes`            |  `-z` | Custom sizes for font splitting (e.g., `--sizes 16 24 32`). Implicitly sets withSizes to true. When using custom sizes, the "all" folder is not generated in the output. |    `❌`   | `[]`         |
 | `--prefix`           |  `-p` | Prefix of icons to delete for icons                                                   |    `❌`   |              |
 | `--overwriteSources` |  `-o` | Overwrite all svgs inside src directory                                               |    `❌`   |              |
 | `--dry`              |  `-d` | Do a dry run with this command - prints/returns output                                |    `❌`   |              |
