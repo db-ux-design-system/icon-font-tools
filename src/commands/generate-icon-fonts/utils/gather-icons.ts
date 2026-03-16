@@ -14,6 +14,7 @@ const allTemporaryDir = "all";
 const initTemporaryIconFiles = (
   globPaths: string[],
   temporaryDirectory: string,
+  sizesToStrip: number[],
   prefix?: string,
 ) => {
   const foundIconFiles: string[] = [];
@@ -27,7 +28,7 @@ const initTemporaryIconFiles = (
     }
 
     iconName = filename.replace(".svg", "");
-    for (const size of availableSizes) {
+    for (const size of sizesToStrip) {
       iconName = iconName.replace(`_${size}`, "");
     }
 
@@ -139,11 +140,15 @@ const gatherIcons = (
   temporaryDirectory: string,
   values: GifConfigType,
 ): string[] | undefined => {
-  const { src, ignore, prefix, dry, variants, withSizes, debug } = values;
+  const { src, ignore, prefix, dry, variants, withSizes, sizes, debug } = values;
   const paths = `${src}/**/*.svg`;
 
+  // If custom sizes are provided, use them and implicitly enable withSizes
+  const useSizes = sizes && sizes.length > 0 ? true : withSizes;
+  const sizesToUse = sizes && sizes.length > 0 ? sizes : availableSizes;
+  
   // We use this to generate all combinations of variants and sizes as fonts
-  const splitSizesArray = withSizes ? ["", ...availableSizes] : [""];
+  const splitSizesArray = useSizes ? ["", ...sizesToUse] : [""];
   const splitVariantsArray =
     variants && variants.length > 0 ? ["", ...variants] : [""];
 
@@ -169,6 +174,7 @@ const gatherIcons = (
   const foundIconFiles = initTemporaryIconFiles(
     globPaths,
     temporaryDirectory,
+    sizesToUse,
     prefix,
   );
 
