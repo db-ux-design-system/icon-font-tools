@@ -181,7 +181,7 @@ const gatherIcons = (
   const foundIconFiles = initTemporaryIconFiles(
     globPaths,
     temporaryDirectory,
-    sizesToUse,
+    [...new Set([...availableSizes, ...componentSizes, ...sizesToUse])],
     prefix,
   );
 
