@@ -226,4 +226,31 @@ describe("simple", () => {
     expect(infoJson).toHaveProperty("diamond");
     expect(infoJson).not.toHaveProperty("diamond8");
   });
+
+  test("custom sizes with source only having unrequested built-in size suffix", async () => {
+    // Source has arrow_64.svg but user requests sizes: [16]
+    // _64 is stripped (built-in size), so icon is "arrow"
+    // initDefaultFile must find arrow_64.svg to create the default fallback
+    await generateIconFonts({
+      fontName: "test-mismatch",
+      src: "./test/generate-icon-fonts/size-mismatch",
+      ignore: ["**/tmp/**", "**/fonts/**"],
+      variants: [],
+      sizes: [16],
+    });
+
+    const fontsDir = "./test/generate-icon-fonts/size-mismatch/fonts";
+
+    // Default directory should exist and the icon should be recognized as "arrow"
+    expect(fs.existsSync(`${fontsDir}/default`)).toBe(true);
+    expect(fs.existsSync(`${fontsDir}/default/info.json`)).toBe(true);
+
+    const infoJson = JSON.parse(
+      fs.readFileSync(`${fontsDir}/default/info.json`).toString("utf-8"),
+    );
+    expect(infoJson).toHaveProperty("arrow");
+
+    // Requested size directory should also exist
+    expect(fs.existsSync(`${fontsDir}/default_16`)).toBe(true);
+  });
 });

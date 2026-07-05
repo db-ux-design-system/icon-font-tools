@@ -52,7 +52,7 @@ const initDefaultFile = (
   temporaryDirectory: string,
   iconFileName: string,
   variant: string,
-  sizesToUse: number[] = [],
+  allKnownSizes: number[] = [],
 ) => {
   const fileName = getVariantFileName(iconFileName, variant);
   const defaultFileExists = existsSync(
@@ -60,10 +60,10 @@ const initDefaultFile = (
   );
 
   if (!defaultFileExists) {
-    // Check componentSizes first, then fall back to any of the requested sizes
+    // Check componentSizes first, then any other known size that was stripped
     const candidateSizes = [
       ...componentSizes,
-      ...sizesToUse.filter((s) => !componentSizes.includes(s)),
+      ...allKnownSizes.filter((s) => !componentSizes.includes(s)),
     ];
 
     for (const size of candidateSizes) {
@@ -178,10 +178,12 @@ const gatherIcons = (
     });
   }
 
+  const allKnownSizes = [...new Set([...availableSizes, ...componentSizes, ...sizesToUse])];
+
   const foundIconFiles = initTemporaryIconFiles(
     globPaths,
     temporaryDirectory,
-    [...new Set([...availableSizes, ...componentSizes, ...sizesToUse])],
+    allKnownSizes,
     prefix,
   );
 
@@ -193,7 +195,7 @@ const gatherIcons = (
         variants && !variants.some((va) => fileName.includes(`_${va}`)),
     )) {
       const fileName = getVariantFileName(iconFileName, variant);
-      initDefaultFile(temporaryDirectory, iconFileName, variant, sizesToUse);
+      initDefaultFile(temporaryDirectory, iconFileName, variant, allKnownSizes);
       initComponentSizes(temporaryDirectory, iconFileName, variant);
 
       for (const size of splitSizesArray) {
