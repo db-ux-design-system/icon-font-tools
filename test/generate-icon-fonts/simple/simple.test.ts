@@ -65,6 +65,31 @@ describe("simple", () => {
     expect(fs.existsSync(`${fontsDir}/all`)).toBe(false);
   });
 
+  test("withSizes generates all directory and default size splits", async () => {
+    await generateIconFonts({
+      fontName: "test-withsizes",
+      src: "./test/generate-icon-fonts/simple",
+      ignore: ["**/ignore/**", "**/tmp/**"],
+      variants: [],
+      withSizes: true,
+    });
+
+    const fontsDir = "./test/generate-icon-fonts/simple/fonts";
+
+    // "all" folder should still be generated when using --withSizes (no custom sizes)
+    expect(fs.existsSync(`${fontsDir}/all`)).toBe(true);
+    expect(fs.existsSync(`${fontsDir}/all/info.json`)).toBe(true);
+
+    // Default directory should exist
+    expect(fs.existsSync(`${fontsDir}/default`)).toBe(true);
+
+    // At least some of the default availableSizes should produce directories
+    const expectedSizes = [16, 20, 24, 32];
+    for (const size of expectedSizes) {
+      expect(fs.existsSync(`${fontsDir}/default_${size}`)).toBe(true);
+    }
+  });
+
   test("check if sizes implicitly sets withSizes", async () => {
     await generateIconFonts({
       fontName: "test-implicit",
