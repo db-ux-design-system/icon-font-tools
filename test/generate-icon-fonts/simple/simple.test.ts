@@ -178,4 +178,52 @@ describe("simple", () => {
     // No "all" folder when using custom sizes
     expect(fs.existsSync(`${fontsDir}/all`)).toBe(false);
   });
+
+  test("size suffix stripping does not corrupt longer sizes (e.g. _128 vs _12)", async () => {
+    await generateIconFonts({
+      fontName: "test-suffix",
+      src: "./test/generate-icon-fonts/size-suffix",
+      ignore: ["**/tmp/**", "**/fonts/**"],
+      variants: [],
+      sizes: [12, 128],
+    });
+
+    const fontsDir = "./test/generate-icon-fonts/size-suffix/fonts";
+
+    // Both size directories should exist
+    expect(fs.existsSync(`${fontsDir}/default_12`)).toBe(true);
+    expect(fs.existsSync(`${fontsDir}/default_128`)).toBe(true);
+
+    // The icon should be recognized as "diamond" (not "diamond8" from partial _12 stripping)
+    const infoJson = JSON.parse(
+      fs.readFileSync(`${fontsDir}/default/info.json`).toString("utf-8"),
+    );
+    expect(infoJson).toHaveProperty("diamond");
+    expect(infoJson).not.toHaveProperty("diamond8");
+
+    // Only one icon should be found (both files are the same icon at different sizes)
+    expect(Object.keys(infoJson).length).toBe(1);
+  });
+
+  test("size suffix stripping handles size-only SVG with overlapping built-in size", async () => {
+    await generateIconFonts({
+      fontName: "test-overlap",
+      src: "./test/generate-icon-fonts/size-suffix",
+      ignore: ["**/tmp/**", "**/fonts/**"],
+      variants: [],
+      sizes: [128], // Only request 128, but source also has _12 which is a built-in size
+    });
+
+    const fontsDir = "./test/generate-icon-fonts/size-suffix/fonts";
+
+    // Should generate the requested size directory
+    expect(fs.existsSync(`${fontsDir}/default_128`)).toBe(true);
+
+    // The icon should still be recognized as "diamond"
+    const infoJson = JSON.parse(
+      fs.readFileSync(`${fontsDir}/default/info.json`).toString("utf-8"),
+    );
+    expect(infoJson).toHaveProperty("diamond");
+    expect(infoJson).not.toHaveProperty("diamond8");
+  });
 });

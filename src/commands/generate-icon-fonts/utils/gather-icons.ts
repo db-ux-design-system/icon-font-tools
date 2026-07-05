@@ -29,7 +29,7 @@ const initTemporaryIconFiles = (
 
     iconName = filename.replace(".svg", "");
     for (const size of sizesToStrip) {
-      iconName = iconName.replace(`_${size}`, "");
+      iconName = iconName.replace(new RegExp(`_${size}(?=_|$)`), "");
     }
 
     copyFileSync(
