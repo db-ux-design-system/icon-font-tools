@@ -1,2 +1,5 @@
 packages:
   - hygen
+allowBuilds:
+  esbuild: true
+  ttf2woff2: false
