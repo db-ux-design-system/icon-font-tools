@@ -30,12 +30,12 @@ export const generateIconFonts = async (
 
     debugLog(debug, "---Start svg to font ---");
     const allTemporaryDirectories = readdirSync(temporaryDirectory);
-    const { sizes, withSizes } = values;
-    const useSizes = sizes && sizes.length > 0 ? true : withSizes;
-    
+    const { sizes } = values;
+    const hasCustomSizes = Array.isArray(sizes) && sizes.length > 0;
+
     for (const directory of allTemporaryDirectories) {
-      // Skip the "all" directory when using size splitting - it's only for processing
-      if (useSizes && directory === "all") {
+      // Skip the "all" directory only when using custom size splitting - it's only for processing then
+      if (hasCustomSizes && directory === "all") {
         continue;
       }
       
