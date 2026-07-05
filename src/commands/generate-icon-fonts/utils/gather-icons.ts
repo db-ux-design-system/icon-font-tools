@@ -52,6 +52,7 @@ const initDefaultFile = (
   temporaryDirectory: string,
   iconFileName: string,
   variant: string,
+  sizesToUse: number[] = [],
 ) => {
   const fileName = getVariantFileName(iconFileName, variant);
   const defaultFileExists = existsSync(
@@ -59,7 +60,13 @@ const initDefaultFile = (
   );
 
   if (!defaultFileExists) {
-    for (const size of componentSizes) {
+    // Check componentSizes first, then fall back to any of the requested sizes
+    const candidateSizes = [
+      ...componentSizes,
+      ...sizesToUse.filter((s) => !componentSizes.includes(s)),
+    ];
+
+    for (const size of candidateSizes) {
       const sizeFileName = `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${fileName}_${size}.svg`;
       const altSizeFileName = `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${iconFileName}_${size}_${variant}.svg`;
 
@@ -186,7 +193,7 @@ const gatherIcons = (
         variants && !variants.some((va) => fileName.includes(`_${va}`)),
     )) {
       const fileName = getVariantFileName(iconFileName, variant);
-      initDefaultFile(temporaryDirectory, iconFileName, variant);
+      initDefaultFile(temporaryDirectory, iconFileName, variant, sizesToUse);
       initComponentSizes(temporaryDirectory, iconFileName, variant);
 
       for (const size of splitSizesArray) {
