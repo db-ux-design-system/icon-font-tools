@@ -1,9 +1,9 @@
 import { CleanIconsConfigType } from "./data.js";
 import { GlobOptionsWithFileTypesFalse, globSync } from "glob";
 import SVGFixer from "oslllo-svg-fixer";
-import { error } from "console";
+import { error } from "node:console";
 import { existsSync } from "node:fs";
-import { mkdirSync } from "fs";
+import { mkdirSync } from "node:fs";
 
 export const cleanIcons = async (config: CleanIconsConfigType) => {
   const { src, ignore, traceResolution, debug, dry, out } = config;

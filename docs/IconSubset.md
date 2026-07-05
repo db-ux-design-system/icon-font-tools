@@ -68,7 +68,7 @@ The default GitHub image is already bundled with `nodejs` and `python`. You can 
 jobs:
   icon-subset:
     name: 🤓🔪 Icon subset
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Use Ubuntu 24.04 explicitly
     steps:
       - name: ⏬ Checkout repo
         uses: actions/checkout@v4

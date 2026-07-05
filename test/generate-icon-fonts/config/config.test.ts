@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import fs from "fs";
+import fs from "node:fs";
 import { gifAction } from "../../../src/commands/generate-icon-fonts/action.js";
 
 describe("config", () => {
