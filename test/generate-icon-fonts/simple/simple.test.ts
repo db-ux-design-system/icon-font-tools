@@ -124,4 +124,33 @@ describe("simple", () => {
       expect(fs.existsSync(`${fontsDir}/default_${size}`)).toBe(false);
     }
   });
+
+  test("custom sizes work with size-only SVGs (no base file)", async () => {
+    await generateIconFonts({
+      fontName: "test-sizeonly",
+      src: "./test/generate-icon-fonts/size-only",
+      ignore: ["**/tmp/**", "**/fonts/**"],
+      variants: [],
+      sizes: [40],
+    });
+
+    const fontsDir = "./test/generate-icon-fonts/size-only/fonts";
+
+    // The default directory should exist with generated font files
+    expect(fs.existsSync(`${fontsDir}/default`)).toBe(true);
+    expect(fs.existsSync(`${fontsDir}/default/info.json`)).toBe(true);
+
+    // The size-specific directory should also exist with generated font files
+    expect(fs.existsSync(`${fontsDir}/default_40`)).toBe(true);
+    expect(fs.existsSync(`${fontsDir}/default_40/info.json`)).toBe(true);
+
+    // Verify the icon was correctly recognized (stripped _40 suffix)
+    const infoJson = JSON.parse(
+      fs.readFileSync(`${fontsDir}/default/info.json`).toString("utf-8"),
+    );
+    expect(infoJson).toHaveProperty("sizeonly");
+
+    // No "all" folder when using custom sizes
+    expect(fs.existsSync(`${fontsDir}/all`)).toBe(false);
+  });
 });
