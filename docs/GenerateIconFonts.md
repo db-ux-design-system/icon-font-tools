@@ -7,23 +7,21 @@ We search for all `**/*.svg` files inside the `src` directory and create a new i
 ## Output Folder Structure
 
 ### Default (without size splitting)
-Generates an `all` folder and a `default` and `filled` folders with all icons:
+Generates an `all` folder, a `default` folder, and one folder per configured variant with all icons:
 - `./fonts/all/` - Contains all icons combined
-- `./fonts/default/` - Default variant
-- `./fonts/default_*/` - Further default variant sized fonts
-- `./fonts/filled/` - Filled variant
-- `./fonts/filled_*/` - Further filled variant sized fonts
+- `./fonts/default/` - Default variant (no size suffix)
+- `./fonts/<variant>/` - One folder per configured variant (for example `./fonts/filled/`)
 
 ### With size splitting (`--withSizes` or `--sizes`)
 When using `--withSizes` with default sizes [12, 14, 16, 20, 24, 28, 32, 48, 64]:
 - `./fonts/all/` - Contains all icons combined
-- `./fonts/default/` - Default variant without size suffix
-- `./fonts/default_12/`, `./fonts/default_16/`, etc. - Size-specific variants
+- `./fonts/<variant>/` - Variant without size suffix (for example `./fonts/default/`)
+- `./fonts/<variant>_12/`, `./fonts/<variant>_16/`, etc. - Size-specific fonts for each variant (including `default`)
 
 When using custom `--sizes` (e.g., `--sizes 16 24 32`):
 - **No `all` folder is generated** - only the specific sizes you requested
-- `./fonts/default/` - Default variant without size suffix  
-- `./fonts/default_16/`, `./fonts/default_24/`, `./fonts/default_32/` - Only your requested sizes
+- `./fonts/<variant>/` - Variant without size suffix (for example `./fonts/default/`)
+- `./fonts/<variant>_16/`, `./fonts/<variant>_24/`, `./fonts/<variant>_32/` - Only your requested sizes for each configured variant
 
 This optimization reduces build time and output size when you know exactly which sizes you need.
 
