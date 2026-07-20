@@ -26,18 +26,19 @@ Generate icon fonts from SVG files
 > You can use `generate-icon-fonts.json` as a config file. 
   By default it tries to search for the configuration otherwise use a correct path by passing `--config=./generate-icon-fonts.json`.
 
-| long                 | short | description                                                                           | required | defaultValue |
-| :------------------- | :---: | :------------------------------------------------------------------------------------ | :------: | :----------- |
-| `--fontName`         |  `-f` | The name of your font                                                                 |    `✅`   |              |
-| `--src`              |  `-s` | Source folder with all svgs                                                           |    `✅`   |              |
-| `--variants`         |  `-v` | Font variants e.g. solid, inverted, etc. We always add a "default" variant for icons. |    `❌`   | `[]`         |
-| `--withSizes`        |  `-w` | Splits the font into different sizes                                                  |    `❌`   |              |
-| `--prefix`           |  `-p` | Prefix of icons to delete for icons                                                   |    `❌`   |              |
-| `--overwriteSources` |  `-o` | Overwrite all svgs inside src directory                                               |    `❌`   |              |
-| `--dry`              |  `-d` | Do a dry run with this command - prints/returns output                                |    `❌`   |              |
-| `--ignore`           |  `-i` | Glob or path like to exclude from files                                               |    `❌`   | `[]`         |
-| `--debug`            |  `-g` | Extra logging                                                                         |    `❌`   |              |
-| `--config`           |  `-c` | Path to configuration file                                                            |    `❌`   |              |
+| long                 | short | description                                                                                                              | required | defaultValue |
+| :------------------- | :---: | :----------------------------------------------------------------------------------------------------------------------- | :------: | :----------- |
+| `--fontName`         |  `-f` | The name of your font                                                                                                    |    `✅`   |              |
+| `--src`              |  `-s` | Source folder with all svgs                                                                                              |    `✅`   |              |
+| `--variants`         |  `-v` | Font variants e.g. solid, inverted, etc. We always add a "default" variant for icons.                                    |    `❌`   | `[]`         |
+| `--withSizes`        |  `-w` | Splits the font into different sizes                                                                                     |    `❌`   |              |
+| `--sizes`            |  `-z` | Custom sizes for font splitting. Use space-separated values (e.g., --sizes 16 24 32). Implicitly sets withSizes to true. |    `❌`   | `[]`         |
+| `--prefix`           |  `-p` | Prefix of icons to delete for icons                                                                                      |    `❌`   |              |
+| `--overwriteSources` |  `-o` | Overwrite all svgs inside src directory                                                                                  |    `❌`   |              |
+| `--dry`              |  `-d` | Do a dry run with this command - prints/returns output                                                                   |    `❌`   |              |
+| `--ignore`           |  `-i` | Glob or path like to exclude from files                                                                                  |    `❌`   | `[]`         |
+| `--debug`            |  `-g` | Extra logging                                                                                                            |    `❌`   |              |
+| `--config`           |  `-c` | Path to configuration file                                                                                               |    `❌`   |              |
 
 ## icon-subset
 

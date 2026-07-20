@@ -4,6 +4,27 @@ We search for all `**/*.svg` files inside the `src` directory and create a new i
 
 > **_NOTE:_** We use four different sizes for components (16, 20, 24, 32) to show more or less details. You can do the same by providing another file with a size suffix for example "icon_file_name_16.svg".
 
+## Output Folder Structure
+
+### Default (without size splitting)
+Generates an `all` folder, a `default` folder, and one folder per configured variant with all icons:
+- `./fonts/all/` - Contains all icons combined
+- `./fonts/default/` - Default variant (no size suffix)
+- `./fonts/<variant>/` - One folder per configured variant (for example `./fonts/filled/`)
+
+### With size splitting (`--withSizes` or `--sizes`)
+When using `--withSizes` with default sizes [12, 14, 16, 20, 24, 28, 32, 48, 64]:
+- `./fonts/all/` - Contains all icons combined
+- `./fonts/<variant>/` - Variant without size suffix (for example `./fonts/default/`)
+- `./fonts/<variant>_12/`, `./fonts/<variant>_16/`, etc. - Size-specific fonts for each variant (including `default`)
+
+When using custom `--sizes` (e.g., `--sizes 16 24 32`):
+- **No `all` folder is generated** - only the specific sizes you requested
+- `./fonts/<variant>/` - Variant without size suffix (for example `./fonts/default/`)
+- `./fonts/<variant>_16/`, `./fonts/<variant>_24/`, `./fonts/<variant>_32/` - Only your requested sizes for each configured variant
+
+This optimization reduces build time and output size when you know exactly which sizes you need.
+
 ## JS/TS
 
 Here is an example for a JS file `index.js`:
@@ -12,12 +33,22 @@ Here is an example for a JS file `index.js`:
 // index.js
 import { generateIconFonts } from "@db-ux/icon-font-tools";
 
+// With default sizes
 void generateIconFonts({
   fontName,
   src: "./icons",
   ignore: ["**/node_modules/**"],
   variants: ["filled"],
   withSizes: true,
+});
+
+// Or with custom sizes (no "all" folder generated)
+void generateIconFonts({
+  fontName,
+  src: "./icons",
+  ignore: ["**/node_modules/**"],
+  variants: ["filled"],
+  sizes: [16, 24, 32], // Only generates these specific sizes
 });
 ```
 
@@ -26,7 +57,14 @@ void generateIconFonts({
 Example:
 
 ```shell
+# Basic usage
 npx @db-ux/icon-font-tools generate-icon-fonts --src ./my-path-to/icons --fontName my-name
+
+# With custom sizes (no "all" folder generated)
+npx @db-ux/icon-font-tools generate-icon-fonts --src ./my-path-to/icons --fontName my-name --sizes 16 24 32
+
+# With all default sizes
+npx @db-ux/icon-font-tools generate-icon-fonts --src ./my-path-to/icons --fontName my-name --withSizes
 ```
 
 For more information run:
