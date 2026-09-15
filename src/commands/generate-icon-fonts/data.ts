@@ -21,6 +21,10 @@ export type GifConfigType = {
   prefix?: string;
   withSizes?: boolean;
   /**
+   * Custom sizes for font splitting. If provided, implicitly sets withSizes to true.
+   */
+  sizes?: number[];
+  /**
    * https://github.com/svg/svgo#configuration
    */
   svgoOptions?: Config;
@@ -53,6 +57,15 @@ export const gifOptions: ProgramOptionsType[] = [
     name: "withSizes",
     description: "Splits the font into different sizes",
     required: false,
+  },
+  {
+    short: "z",
+    name: "sizes",
+    long: "--sizes [sizes...]",
+    description: "Custom sizes for font splitting. Use space-separated values (e.g., --sizes 16 24 32). Implicitly sets withSizes to true.",
+    array: true,
+    required: false,
+    defaultValue: [],
   },
   {
     short: "p",
