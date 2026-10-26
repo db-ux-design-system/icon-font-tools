@@ -14,6 +14,7 @@ const allTemporaryDir = "all";
 const initTemporaryIconFiles = (
   globPaths: string[],
   temporaryDirectory: string,
+  sizesToStrip: number[],
   prefix?: string,
 ) => {
   const foundIconFiles: string[] = [];
@@ -27,8 +28,8 @@ const initTemporaryIconFiles = (
     }
 
     iconName = filename.replace(".svg", "");
-    for (const size of availableSizes) {
-      iconName = iconName.replace(`_${size}`, "");
+    for (const size of sizesToStrip) {
+      iconName = iconName.replace(new RegExp(`_${size}(?=_|$)`), "");
     }
 
     copyFileSync(
@@ -51,6 +52,7 @@ const initDefaultFile = (
   temporaryDirectory: string,
   iconFileName: string,
   variant: string,
+  allKnownSizes: number[] = [],
 ) => {
   const fileName = getVariantFileName(iconFileName, variant);
   const defaultFileExists = existsSync(
@@ -58,7 +60,13 @@ const initDefaultFile = (
   );
 
   if (!defaultFileExists) {
-    for (const size of componentSizes) {
+    // Check componentSizes first, then any other known size that was stripped
+    const candidateSizes = [
+      ...componentSizes,
+      ...allKnownSizes.filter((s) => !componentSizes.includes(s)),
+    ];
+
+    for (const size of candidateSizes) {
       const sizeFileName = `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${fileName}_${size}.svg`;
       const altSizeFileName = `${temporaryDirectory}/${allTemporaryDir}/${generalPrefix}${iconFileName}_${size}_${variant}.svg`;
 
@@ -139,11 +147,15 @@ const gatherIcons = (
   temporaryDirectory: string,
   values: GifConfigType,
 ): string[] | undefined => {
-  const { src, ignore, prefix, dry, variants, withSizes, debug } = values;
+  const { src, ignore, prefix, dry, variants, withSizes, sizes, debug } = values;
   const paths = `${src}/**/*.svg`;
 
+  // If custom sizes are provided, use them and implicitly enable withSizes
+  const useSizes = sizes && sizes.length > 0 ? true : withSizes;
+  const sizesToUse = sizes && sizes.length > 0 ? sizes : availableSizes;
+  
   // We use this to generate all combinations of variants and sizes as fonts
-  const splitSizesArray = withSizes ? ["", ...availableSizes] : [""];
+  const splitSizesArray = useSizes ? ["", ...sizesToUse] : [""];
   const splitVariantsArray =
     variants && variants.length > 0 ? ["", ...variants] : [""];
 
@@ -166,9 +178,12 @@ const gatherIcons = (
     });
   }
 
+  const allKnownSizes = [...new Set([...availableSizes, ...componentSizes, ...sizesToUse])];
+
   const foundIconFiles = initTemporaryIconFiles(
     globPaths,
     temporaryDirectory,
+    allKnownSizes,
     prefix,
   );
 
@@ -180,7 +195,7 @@ const gatherIcons = (
         variants && !variants.some((va) => fileName.includes(`_${va}`)),
     )) {
       const fileName = getVariantFileName(iconFileName, variant);
-      initDefaultFile(temporaryDirectory, iconFileName, variant);
+      initDefaultFile(temporaryDirectory, iconFileName, variant, allKnownSizes);
       initComponentSizes(temporaryDirectory, iconFileName, variant);
 
       for (const size of splitSizesArray) {
