@@ -4,11 +4,17 @@ import { GifConfigType } from "./data.js";
 import gatherIcons from "./utils/gather-icons.js";
 import { debugLog } from "../../utils/index.js";
 import svgToFont from "./utils/svg-to-font.js";
+import { normalizeSizes } from "./utils/normalize-sizes.js";
 import { copyFileSync, existsSync, readdirSync, rmSync } from "node:fs";
 
 export const generateIconFonts = async (
-  values: GifConfigType,
+  passedValues: GifConfigType,
 ): Promise<unknown> => {
+  // Normalize once, so all following steps work with the same number[] (CLI passes strings)
+  const values: GifConfigType = {
+    ...passedValues,
+    sizes: normalizeSizes(passedValues.sizes),
+  };
   const { src, dry, debug = false, overwriteSources = false } = values;
   const dist = `${src}/fonts`;
   const temporaryDirectory = `${src}/tmp`;
@@ -30,8 +36,7 @@ export const generateIconFonts = async (
 
     debugLog(debug, "---Start svg to font ---");
     const allTemporaryDirectories = readdirSync(temporaryDirectory);
-    const { sizes } = values;
-    const hasCustomSizes = Array.isArray(sizes) && sizes.length > 0;
+    const hasCustomSizes = (values.sizes?.length ?? 0) > 0;
 
     for (const directory of allTemporaryDirectories) {
       // Skip the "all" directory only when using custom size splitting - it's only for processing then

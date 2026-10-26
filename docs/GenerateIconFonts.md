@@ -25,6 +25,8 @@ When using custom `--sizes` (e.g., `--sizes 16 24 32`):
 
 This optimization reduces build time and output size when you know exactly which sizes you need.
 
+Sizes must be positive integers. Invalid values (e.g. `abc`, `0` or `16.5`) are ignored with a warning. If no valid size remains, the fonts are generated as without `--sizes`.
+
 ## JS/TS
 
 Here is an example for a JS file `index.js`:
